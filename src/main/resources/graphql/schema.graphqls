@@ -1,0 +1,31 @@
+
+type Mutation{
+    createObject(allObjects:AllObjectsInput):AllObjects
+}
+
+type Query{
+    getAllObjects:[AllObjects]
+    getObject(objectId:String):AllObjects
+}
+
+type Fields{
+      fieldname:String
+      value:String
+}
+
+
+type AllObjects{
+    id:String!
+    objectName:String
+    fields:[Fields]
+}
+
+input AllObjectsInput{
+    objectName:String
+    fieldsInputs:[FieldsInput]
+}
+
+input FieldsInput{
+    fieldname:String
+    value:String
+}
